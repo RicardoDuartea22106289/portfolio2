@@ -1,0 +1,30 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <div class="escola">
+        <div class="painel2">
+            <br>
+            <h1>Add New Post</h1>
+            <br>
+            <form method="POST" enctype="multipart/form-data" class="form-container">
+                {% csrf_token %}
+                <label class="form-label" for="titulo">Title:</label>
+                <input class="form-input" type="text" name="titulo" id="titulo" required>
+                <br><br>
+                <label class="form-label" for="texto">Text:</label>
+                <textarea  class="form-textarea" name="texto" id="texto" required></textarea>
+                <br><br><br>
+                <label class="form-label" for="autor">Autor:</label>
+                <select class="form-select" name="autor" id="autor">
+                    {% for pessoa in pessoas %}
+                        <option value="{{ pessoa.nome }}">{{ pessoa.nome }}</option>
+                    {% endfor %}
+                </select>
+                <br><br><br>
+
+                <input class="btn2" type="submit" value="Add Post">
+            </form>
+        </div>
+    </div>
+<br><br>
+{% endblock %}

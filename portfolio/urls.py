@@ -14,5 +14,6 @@ urlpatterns = [
     path('projetos', views.projetos_page_view, name='projetos'),
     path('contactos', views.contactos_page_view, name='contactos'),
     path('sobreMim', views.sobreMim_page_view, name='sobreMim'),
-    path('blog', views.blog_page_view, name='blog')
+    path('blog', views.blog_page_view, name='blog'),
+    path('novo_post', views.novo_post, name='novoPost'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

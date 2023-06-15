@@ -1,5 +1,12 @@
 from django.db import models
 
+class Pessoa(models.Model):
+    nome = models.CharField(max_length=100)
+    linkedin = models.URLField(null=True,blank=True)
+
+    def __str__(self):
+        return (self.nome)
+
 class Disciplina(models.Model):
     nome = models.CharField(max_length=100)
     ano = models.IntegerField()
@@ -8,20 +15,15 @@ class Disciplina(models.Model):
     ano_letivo = models.CharField(max_length=100)
     topicos_abordados = models.TextField()
     ranking = models.IntegerField()
-    professor = models.ForeignKey('Pessoa', on_delete=models.CASCADE)
+    professor = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
     pagina_cadeira = models.URLField(blank=True)
 
     def __str__(self):
         return (self.nome)
 
-class Pessoa(models.Model):
-    nome = models.CharField(max_length=100)
-    linkedin = models.URLField(null=True,blank=True)
-
 class Projeto(models.Model):
     titulo = models.CharField(max_length=100)
     descricao = models.CharField(max_length=500)
-    imagem = models.ImageField(upload_to='projetos/')
     ano_realizacao = models.IntegerField()
     cadeira = models.ForeignKey(Disciplina, on_delete=models.CASCADE, null=True, blank=True)
     participantes = models.ManyToManyField(Pessoa)
@@ -41,10 +43,17 @@ class TrabalhoFinalCurso(models.Model):
     repositorio_github = models.URLField(blank=True)
     video_youtube = models.URLField(blank=True)
 
+    def __str__(self):
+        return (self.titulo)
+
 class Post(models.Model):
     titulo = models.CharField(max_length=100)
     texto = models.TextField()
-    imagem = models.ImageField(upload_to='noticias/')
+    autor = models.ForeignKey(Pessoa, on_delete=models.CASCADE)
 
     def __str__(self):
         return (self.titulo)
+
+class Comptencia(models.Model):
+    nome = models.CharField(max_length=100)
+    descricao = models.TextField()
