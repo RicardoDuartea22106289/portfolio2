@@ -1,0 +1,16 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <div class="escola">
+        <div class="painel">
+            <h3 class="titulo">Licenciatura</h3>
+                {% for disci in disciplinas %}
+                    <div class="disciplina">
+                        <p>{{ disci.nome }} - {{ disci.ano }}ºAno - Semestre: {{ disci.semestre }} - ECTS: {{ disci.ects }} -  Ano Letivo: {{ disci.ano_letivo }}</p>
+                        <br>
+                        <p>{{ disci.topicos_abordados }}</p>
+                    </div>
+                {% endfor %}
+        </div>
+    </div>
+{% endblock %}

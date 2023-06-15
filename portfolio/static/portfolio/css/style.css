@@ -1,0 +1,244 @@
+:root{
+    --white: white;
+    --black: black;
+    --gray: #333;
+    --gray2: #444;
+} 
+[data-theme="white"]{
+    --white: black;
+    --black: white;
+    --gray: #444;
+    --gray2: #333;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    position: relative;
+    font-family: Arial, Helvetica, sans-serif;
+    justify-content: center;
+    align-items: center;
+}
+
+.sobreMim{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    background-color: var(--white);
+    color: var(--white);
+    padding: 3%;
+    min-height: 1000px;
+    width: auto;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 30% 70%;
+    grid-template-areas: 
+        'titulo titulo'
+        'aboutMe stuff';
+    grid-gap: 30px;
+}
+
+.me{
+    padding-top: 20px;
+    width: 200px;
+    max-height: 200px;
+    animation: girar 2s linear;
+}
+  
+@keyframes girar {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+.title{
+    background-color: var(--gray2);
+    font-size: 3.5em;
+    grid-area: titulo;
+}
+
+.subTitulo{
+    font-size: 2.5em;
+    margin: 3%
+}
+
+.aboutMe{
+    min-width: 400px;
+    background-color: var(--gray2);
+    grid-area: aboutMe;
+}
+.stuff{
+    min-width: 400px;
+    background-color: var(--gray2);
+    grid-area: stuff;
+}
+
+.grid article .textoME{
+   margin: 10%;
+   font-size: 1.5em;
+}
+
+.paralax > p{
+    font-size: 5em;
+    color: var(--white);
+    font-family: cursive;
+    width: 60%;
+}
+
+.paralax {
+    background-image: url("../img/drave.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    z-index: -1;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+#textoHome{
+    display: flex;
+    background-color: var(--gray2);
+    color: var(--white);
+    min-height: 50px;
+    width: auto;
+    font-size: 2em;
+    padding: 10%;
+}
+
+paralax1 {
+    width: 100%;
+    height: 10%
+}
+.paralax2 {
+    background-image: url("../img/bandeiras.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    width: 100%;
+    height: 40vh;
+}
+
+input[type="button"] {
+    font-size: 20px;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--white);
+    color: var(--gray);
+    cursor: pointer;
+}
+input[type="button"]:hover {
+    background-color: var(--gray);
+    color: var(--white);
+}
+input[type="text"] {
+    font-size: 30px;
+    width: 200px;
+    height: 50px;
+    text-align: right;
+    padding-right: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--white);
+}
+
+.calcTitle{
+    margin: 0% 10% 5% 10%;
+    color: var(--white);
+}
+
+.calc{
+    color: var(--white);
+    background-color: var(--gray);
+    font-family: Arial, sans-serif;
+    margin: 5% 5% 5% 5%;
+    width: auto;
+    height: auto;
+    justify-content: center;
+}
+
+#temp{
+    padding: 5%;
+}
+
+.calc > input{
+    justify-content: center;
+}
+
+#imagem {
+    position: relative;
+    max-width: 80%;
+    margin: auto;
+    
+}
+
+#frase {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: var(--white);
+    text-shadow: 1px 1px 2px black;
+}
+
+#btnImg{
+    
+    font-size: larger;
+    text-align: center;
+    padding: 28px 18px;
+    margin-bottom: 5%;
+    background-color: var(--gray);
+    color: var(--white);
+    
+}
+
+.escola{
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    align-items: center;
+    justify-content: center;
+
+}
+.escola .painel{
+    width: 60%;
+    min-height: 700px;
+    color: var(--white);
+    background-color: var(--gray);
+    border-radius: 10px;
+}
+
+.disciplina{
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    background-color: var(--gray2);
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.disciplina a{
+    text-decoration: none;
+    color: var(--white)
+}
+
+.titulo{
+    padding: 20px;
+    text-align: center;
+}
+

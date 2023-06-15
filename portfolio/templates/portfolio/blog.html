@@ -1,0 +1,16 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <div class="escola">
+        <div class="painel">
+            <h1 class="titulo">Blog</h1>
+            {% for post in posts %}
+                <div class="disciplina">
+                    <h3 style="text-align:left">{{ post.titulo }}</h3>
+                    <p>{{ post.texto }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <br>
+{% endblock %}

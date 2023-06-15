@@ -1,0 +1,25 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+{% block main %}
+	<main class="sobreMim">
+        <div class="grid">
+            <div class="title">
+                <p style="margin-top: 10px">Sobre Mim</p>
+                <img class="me" src="{% static 'portfolio/img/me.jpg' %}">
+
+            </div>
+            <article class="aboutMe">
+                <h6 class="subTitulo">Vida Pessoal</h6>
+                <p class="textoME">Chamo-me Ricardo Soares Duarte</p>
+                <p class="textoME">Sou escuteiro no Agrupamento 467 - Charneca de Caparica</p>
+                <p class="textoME">Estudo Engenharia Informática na Universidade Lusófona de Humanidades e Tecnologias</p>
+                <p class="textoME">Gosto de video jogos comptitivos como CS:GO</p>
+                <p class="textoME">Gosto de Surfar</p>
+            </article>
+            <article class="stuff">
+                <img style="width: 400px;;margin-top: 10%;" src="{% static 'portfolio/img/scout.jpg' %}"><br>
+                <img style="width: 400px;;margin-top: 10%;" src="{% static 'portfolio/img/surf.jpg' %}">
+            </article>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="{% static 'portfolio\css\style.css' %}">
+        <link rel="stylesheet" href="{% static 'portfolio\css\nav.css' %}">
+        <link rel="stylesheet" href="{% static 'portfolio\css\footer.css' %}">
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/e6ffd77b5f.js" crossorigin="anonymous"></script>
+        <title>Home</title>
+    </head>
+    <body>
+        <header>
+            <nav class="navBar">
+                <ul>
+                    <li><a class="active" href="{% url 'portfolio:home' %}">Home</a></li>
+                    <li><a href="{% url 'portfolio:sobreMim' %}">Sobre Mim</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropbtn">Formação</a>
+                        <div class="dropdown-content">
+                            <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
+                            <a href="{% url 'portfolio:formacao' %}">Outros</a>
+                        </div>
+                    </li>
+                    <li><a href="{% url 'portfolio:projetos' %}">Projetos</a></li>
+                    <li><a href="{% url 'portfolio:contactos' %}">Contactos</a></li>
+                    <li><a href="{% url 'portfolio:blog' %}">Blog</a></li>
+                    <li><span class="btn"><i class="fa-solid fa-sun"></i></span></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            {% block main %}
+            {% endblock main %}
+        </main>
+
+        <footer>
+            <div class="footer">
+                <p>&copy; 2023 - Ricardo Duarte - a22106289 - 2º ano</p>
+                    <nav>
+                    <ul id="listFooter">
+                        <li><a href="{% url 'portfolio:sobreMim' %}">Sobre Mim</a></li>
+                        <li><a href="{% url 'portfolio:contactos' %}">Contato</a></li>
+                        <li><a href="https://www.ulusofona.pt/">Universidade</a></li>
+                        <li id="data"></li>
+                    </ul>
+                </nav>
+            </div>
+        </footer>
+        <script>
+            const button = document.querySelector('.btn');
+
+            button.addEventListener('click', function() {
+                const body = document.querySelector('body');
+                if(body.hasAttribute('data-theme')){
+                    body.removeAttribute('data-theme');
+                    button.querySelector('i').classList.remove('fa-moon');
+                    button.querySelector('i').classList.add('fa-sun');
+                }else{
+                    body.setAttribute('data-theme', 'white');
+                    button.querySelector('i').classList.add('fa-moon');
+                    button.querySelector('i').classList.remove('fa-sun');
+                }
+            });
+
+        </script>
+        <script>
+            const hoje = new Date();
+            const dia = hoje.getDate();
+            const mes = hoje.getMonth() + 1;
+            const ano = hoje.getFullYear();
+            const data = `${dia}/${mes}/${ano}`;
+
+            document.getElementById("data").innerText = "Data: " + data;
+        </script>
+    </body>
+</html>
